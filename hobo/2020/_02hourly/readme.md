@@ -1,2 +1,2 @@
 
-## dummy folder
+## Upload folder for hourly series
