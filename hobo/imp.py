@@ -18,8 +18,9 @@ def read_file(fname, txtfmt=False):
 		df.columns = ['temperature', 'light', 'tstamp']
 	else:
 		# HOBO CSV format
-		df = pd.read_csv(fname, skiprows=2, header=None, parse_dates=[1], thousands=',')
-		df.drop(0, axis=1, inplace=True)
+		df = pd.read_csv(fname, skiprows=2, header=None, parse_dates=[1], usecols=[1,2,3])
+		#df.drop(0, axis=1, inplace=True)
+		df.dropna(inplace=True)
 		df.columns = ['tstamp', 'temperature', 'light']
 		
 	# add the current ID
@@ -53,7 +54,7 @@ if __name__=='__main__':
 	
 	# get existing ids
 	conn = engine.connect()
-	res = conn.execute("select distinct hobo_id from %s where tstamp > '2017-06-06'" % table)
+	res = conn.execute("select distinct hobo_id from %s where tstamp > '2019-06-06'" % table)
 	existing_ids = [_[0] for _ in res.fetchall()]
 	conn.close()
 	
