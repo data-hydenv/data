@@ -29,7 +29,7 @@ jobs:
       - name: Harvest the data
         env:
           API_KEY: ${{ secrets.OWM_API_KEY }}
-        run: python extra/weather/get_data.py --api-key="$API_KEY"
+        run: python extra/weather/get_data.py run --api-key="$API_KEY"
       
       - name: Commit and push new data
         uses: EndBug/add-and-commit@v5
