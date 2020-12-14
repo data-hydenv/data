@@ -11,7 +11,7 @@ on:
 
 jobs:
   harvest:
-    runs-on: ubtuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
