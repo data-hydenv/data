@@ -33,6 +33,8 @@ jobs:
         with:
           add: 'extra/weather/data/.'
           message: "Data download via Github action" 
+          author_name: mmaelicke
+          author_email: mirko.maelicke@kit.edu
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       
