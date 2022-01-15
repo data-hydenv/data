@@ -1,0 +1,29 @@
+library(tidyverse)
+df<-mydata <-read.csv("10760763.txt", header = TRUE, sep = ",", skip = 1)
+head(mydata)
+names(mydata)
+view(mydata)
+colnames(mydata) <- c("Id","dttm","Temp","Intensity","Lux","Host","Stopped", "End")
+mydata
+str(mydata)
+nrow(mydata)
+df2<-mydata2<-mydata[283:4314,]
+df3<-mydata3<-select(mydata2, Id:Intensity)
+write.table(mydata3, file = "mydata3.csv", sep = "", na = "NA" , row.names = FALSE)
+
+seq(ymd_hms('2021-12-13 00:00:00'),
+    ymd_hms('2021-12-13 03:50:00'),
+    by = '10 mins') %>%
+  as_tibble(mydata3, dttm)
+
+dt <- seq(ymd_hms('2021-12-13 00:00:00',
+                  tz = "Europe/Berlin"),
+          ymd_hms('2021-12-13 03:50:00',
+                  tz = "Europe/Berlin"),
+          by = 'hours') %>% as_tibble(mydata3, dttm)
+
+dt %>%mutate(value2 =
+  format(value, "%Y-%m-%d %H:%M:%S")) %>%
+write_csv(., file ="~/Data_Project/Data_Raw/mydata3.csv")
+    
+tab<-read.csv("text_table.txt", header = TRUE, sep = "", fill = TRUE)  
