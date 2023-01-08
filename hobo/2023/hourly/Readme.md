@@ -1,7 +1,13 @@
 Put your processed and fileld hourly timeseries files here.
 
-The files should be in the format explained in exercice 3.
-The dttm column should be in UTC+1 (GMT+1).
+The files should be in the format explained in exercice 4.
+
+The file must contain three columns:
+1.  **dttm**: Date and time in the format "YYYY.MM.DD HH:MM:SS" in UTC+1 (old name GMT+1)
+2.  **th** : Temperature** values (in °C)
+3.  **origin**: A flag indicating whether the value is from your HOBO station (H) or filled by regression (R)
+
+Column separator should be a comma (`.csv`). 
 
 Here is an example:
 | dttm                | th    | origin |
