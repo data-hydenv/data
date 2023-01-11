@@ -12,7 +12,7 @@ Those files shoul be conform to those specifications (explained in exercice 2):
 -	the data resolution should be the same as in the raw file (e.g. 4 digits)
 -	the column separator is a comma (,), the decimal separator is a point (.)
 -	one line per observation (an observation is a 10-min value from the time series)
--	Your file will have 6 (timesteps per hour) x 24 (hours) = 144 values per day, if no measurement point the file shoul have an “NA” written at this observation point
+-	Your file will have 6 (timesteps per hour) x 24 (hours) = 144 values per day, if no measurement point the file should have an “NA” written at this observation point
 -	Start and End date and time is given during the exercise lecture
 -	The name of your file should be “your_hobo_id.csv” (e.g. 10305099.csv)
 
