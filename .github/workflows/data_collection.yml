@@ -1,0 +1,40 @@
+# Reach out to OWM API to download data
+name: Load data
+
+on:
+  # Run every day
+  schedule:
+    - cron: '0 12 * * *'
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+          architecture: x64
+          
+      - name: Install requirements
+        run: pip install -r extra/weather/requirements.txt
+      
+      - name: Harvest the data
+        env:
+          API_KEY: ${{ secrets.OWM_API_KEY }}
+        run: python extra/weather/get_data.py run --api-key="$API_KEY"
+      
+      - name: Commit and push new data
+        uses: EndBug/add-and-commit@v5
+        with:
+          add: 'extra/weather/data/.'
+          message: "Data download via Github action" 
+          author_name: mmaelicke
+          author_email: mirko.maelicke@kit.edu
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      

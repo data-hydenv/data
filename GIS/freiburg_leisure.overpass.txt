@@ -1,0 +1,8 @@
+# run this command at https://overpass-turbo.eu/
+[out:xml];
+area[name="Freiburg im Breisgau"]->.searchArea;
+(
+  way["leisure"="park"](area.searchArea);
+  relation["leisure"="park"](area.searchArea);
+);
+out geom;
