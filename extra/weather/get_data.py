@@ -4,7 +4,7 @@ Load data from OpenWeatherMap.
 You can obtain a free API key there and add it as an evironment variable,
 or pass it on as a argument to the script.
 
-The default lat lon are 47.996093, 7.853091, which is the 
+The default lat lon are 47.996093, 7.853091, which is the
 Freiburger Münster.
 """
 from datetime import datetime as dt
@@ -15,8 +15,8 @@ import os
 
 LAT = 47.996093
 LON = 7.853091
-HISTORIC_URL = 'https://api.openweathermap.org/data/2.5/onecall/timemachine?lat={lat}&lon={lon}&dt={ts}&appid={key}'
-FORECAST_URL = 'https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={key}'
+HISTORIC_URL = 'https://api.openweathermap.org/data/3.0/onecall/timemachine?lat={lat}&lon={lon}&dt={ts}&appid={key}'
+FORECAST_URL = 'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={key}'
 
 def __get_api_key(api_key):
     if api_key is None:
@@ -28,18 +28,18 @@ def __get_api_key(api_key):
 
 def get_last_days(api_key=None, lat=None, lon=None, days_back=1, **kwargs):
     """
-    Fetch the history data of the past day using 
+    Fetch the history data of the past day using
     the given api key
     """
     # get the API key
     key = __get_api_key(api_key)
-    
+
     # get coordinates
     if lat is None:
         lat = LAT
     if lon is None:
         lon = LON
-    
+
     # create UNIX timestamp, UTC
     ts = int((dt.utcnow() - td(days=days_back)).timestamp())
 
