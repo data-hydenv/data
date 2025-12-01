@@ -1,16 +1,18 @@
 This is the calibration value, to calibrate your Hobo measurements in °C.
 All the HOBOs were in a bucket of water and the calibration value got measured with the GMH3750 Thermometer.
 The Timestamp is in UTC+1.
-At 2025-10-30 11:35 ice qubes were added to the water bucket.
 
-dttm,T
-2025-10-30 10:40,15.1
-2025-10-30 10:50,15.2
-2025-10-30 11:00,15.6
-2025-10-30 11:10,16.1
-2025-10-30 11:20,17.0
-2025-10-30 11:30,11.8
-2025-10-30 11:40,7.5
-2025-10-30 11:50,5.7
-2025-10-30 12:00,4.8
-2025-10-30 12:10,4.0
+dttm,T,bucket
+2024-10-30 11:40,44.31,hot
+2024-10-30 11:45,43.52,hot
+2024-10-30 11:50,42.85,hot
+2024-10-30 11:55,42.28,hot
+2024-10-30 12:00,41.67,hot
+2024-10-30 12:05,40.85,hot
+2024-10-30 12:10,40.63,hot
+2024-10-30 12:15,,
+2024-10-30 12:20,16.45,cold
+2024-10-30 12:25,16.51,cold
+2024-10-30 12:30,16.63,cold
+2024-10-30 12:35,16.62,cold
+2024-10-30 12:40,16.75,cold
